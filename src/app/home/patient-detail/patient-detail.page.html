@@ -9,17 +9,82 @@
 
 <ion-content *ngIf="patient">
     <ion-item style="--background: #0096bb">
-        <ion-avatar slot="start">
-            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        <ion-avatar style="width: 60px; height: 60px; margin: 0 16px 0px 0px;" slot="start">
+            <ion-icon style="width: 100%; height: 100%" name="contact"></ion-icon>
         </ion-avatar>
         <ion-label style="color:white">
             <h2 color=" primary ">{{patient.firstName | uppercase}}, {{patient.lastName}},</h2>
             <div>
-                AGE: <span>{{patient.age}}</span> - PAS ID: <span>{{patient.pasID}}</span>
+                Age: <span>{{patient.age}}</span> - birthDate: <span>{{patient.birthDate | date}}</span>
             </div>
             <div>
                 <span>{{patient.gender | titlecase }}</span>
             </div>
+            <div>
+                <span>{{patient.address.line | titlecase }}</span> - <span>{{patient.address.country | titlecase }}</span>
+            </div>
         </ion-label>
     </ion-item>
+    <ion-card>
+        <ion-item (click)="goMaternitySummary(patient)">
+            <ion-icon style="color: #0096bb; font-weight: bold; font-size: 30px" name="woman"></ion-icon>
+            <ion-card-content style="font-size: 20px; font-weight: 600">
+                Maternity Summary
+            </ion-card-content>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-icon style="color: #0096bb; font-weight: bold; font-size: 30px" name="apps"></ion-icon>
+            <ion-card-content style="font-size: 20px; font-weight: 600">
+                EPR Summary
+            </ion-card-content>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-icon style="color: #0096bb; font-weight: bold; font-size: 30px" name="egg"></ion-icon>
+            <ion-card-content style="font-size: 20px; font-weight: 600">
+                Fetal details
+            </ion-card-content>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-icon style="color: #0096bb; font-weight: bold; font-size: 30px" name="flower"></ion-icon>
+            <ion-card-content style="font-size: 20px; font-weight: 600">
+                Allergies
+            </ion-card-content>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-icon style="color: #0096bb; font-weight: bold; font-size: 30px" name="medical"></ion-icon>
+            <ion-card-content style="font-size: 20px; font-weight: 600">
+                Problems
+            </ion-card-content>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-icon style="color: #0096bb; font-weight: bold; font-size: 30px" name="copy"></ion-icon>
+            <ion-card-content style="font-size: 20px; font-weight: 600">
+                Clinical Notes
+            </ion-card-content>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-icon style="color: #0096bb; font-weight: bold; font-size: 30px" name="calendar"></ion-icon>
+            <ion-card-content style="font-size: 20px; font-weight: 600">
+                Visits
+            </ion-card-content>
+        </ion-item>
+    </ion-card>
 </ion-content>

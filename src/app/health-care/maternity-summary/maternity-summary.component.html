@@ -1,0 +1,169 @@
+<ion-header>
+    <ion-toolbar style="--background: black">
+        <ion-buttons slot="start">
+            <ion-back-button color="light" defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title style="font-weight: 600; color: white">
+            Maternity Summary</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <ion-slides #slides>
+        <ion-slide>
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>CONCEPTION</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <form [formGroup]="conceptionForm" (ngSubmit)="onSubmit()">
+                        <ion-list>
+                            <ion-item>
+                                <ion-radio-group formControlName="status">
+                                    <ion-list-header>
+                                        <ion-label>Assisted conception</ion-label>
+                                    </ion-list-header>
+                                    <ion-row>
+                                        <ion-col>
+                                            <ion-item lines="none">
+                                                <ion-label>Yes</ion-label>
+                                                <ion-radio slot="start" value="yes" (click)="checkConception(true)"></ion-radio>
+                                            </ion-item>
+                                        </ion-col>
+                                        <ion-col>
+                                            <ion-item lines="none">
+                                                <ion-label>No</ion-label>
+                                                <ion-radio slot="start" value="no" (click)="checkConception(false)"></ion-radio>
+                                            </ion-item>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-radio-group>
+                            </ion-item>
+                        </ion-list>
+                        <div *ngIf="isConception">
+                            <ion-list>
+                                <ion-item>
+                                    <ion-radio-group formControlName="type">
+                                        <ion-list-header>
+                                            <ion-label>Assisted conception type</ion-label>
+                                        </ion-list-header>
+                                        <ion-row>
+                                            <ion-col>
+                                                <ion-item lines="none">
+                                                    <ion-label>IVF</ion-label>
+                                                    <ion-radio slot="start" value="ivf"></ion-radio>
+                                                </ion-item>
+                                            </ion-col>
+                                            <ion-col>
+                                                <ion-item lines="none">
+                                                    <ion-label>IUI</ion-label>
+                                                    <ion-radio slot="start" value="iui"></ion-radio>
+                                                </ion-item>
+                                            </ion-col>
+                                            <ion-col>
+                                                <ion-item lines="none">
+                                                    <ion-label>ICSI</ion-label>
+                                                    <ion-radio slot="start" value="icsi"></ion-radio>
+                                                </ion-item>
+                                            </ion-col>
+                                            <ion-col>
+                                                <ion-item lines="none">
+                                                    <ion-label>GIFT</ion-label>
+                                                    <ion-radio slot="start" value="gift"></ion-radio>
+                                                </ion-item>
+                                            </ion-col>
+                                        </ion-row>
+                                    </ion-radio-group>
+                                </ion-item>
+                            </ion-list>
+                            <ion-list>
+                                <ion-list-header>
+                                    <ion-label>Assisted conception details</ion-label>
+                                </ion-list-header>
+                                <ion-item>
+                                    <ion-row formGroupName="details">
+                                        <ion-col>
+                                            <ion-item lines="none">
+                                                <ion-label>Hormone injections</ion-label>
+                                                <ion-checkbox slot="start" value="hormone injections" formControlName="HI"></ion-checkbox>
+                                            </ion-item>
+                                        </ion-col>
+                                        <ion-col>
+                                            <ion-item lines="none">
+                                                <ion-label>Ovarian stimulants</ion-label>
+                                                <ion-checkbox slot="start" value="ovarian stimulants" formControlName="OS"></ion-checkbox>
+                                            </ion-item>
+                                        </ion-col>
+                                        <ion-col>
+                                            <ion-item lines="none">
+                                                <ion-label>Surgery</ion-label>
+                                                <ion-checkbox slot="start" value="surgery" formControlName="S"></ion-checkbox>
+                                            </ion-item>
+                                        </ion-col>
+                                        <ion-col>
+                                            <ion-item lines="none">
+                                                <ion-label>Weight loss programme</ion-label>
+                                                <ion-checkbox slot="start" value="weight loss programme" formControlName="WL"></ion-checkbox>
+                                            </ion-item>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-item>
+                            </ion-list>
+
+                            <ion-list>
+                                <ion-item lines="none">
+                                    <ion-radio-group formControlName="embryos">
+                                        <ion-list-header>
+                                            <ion-label>Embryos transffered</ion-label>
+                                        </ion-list-header>
+                                        <ion-row>
+                                            <ion-col>
+                                                <ion-item lines="none">
+                                                    <ion-label>Yes</ion-label>
+                                                    <ion-radio slot="start" value="yes" (click)="checkEmbryos(true)"></ion-radio>
+                                                </ion-item>
+                                            </ion-col>
+                                            <ion-col>
+                                                <ion-item lines="none">
+                                                    <ion-label>No</ion-label>
+                                                    <ion-radio slot="start" value="no" (click)="checkEmbryos(false)"></ion-radio>
+                                                </ion-item>
+                                            </ion-col>
+                                        </ion-row>
+                                    </ion-radio-group>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-datetime formControlName="dateEmbryos" displayFormat="MMM DD YYYY" placeholder="Select Date" [disabled]="!isEmbryos"></ion-datetime>
+                                </ion-item>
+                            </ion-list>
+
+                        </div>
+                        <ion-button type="submit">Submit</ion-button>
+                    </form>
+                </ion-card-content>
+            </ion-card>
+        </ion-slide>
+        <ion-slide>
+            2
+        </ion-slide>
+        <ion-slide>
+            3
+        </ion-slide>
+    </ion-slides>
+
+
+</ion-content>
+<ion-footer>
+    <ion-segment scrollable [(ngModel)]="segment" (ionChange)="segmentChanged()">
+        <ion-segment-button [disabled]="segment.isDisable" *ngFor="let segment of segments; let i = index" [value]="i">
+            <ion-label>{{segment.name}}</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+
+    <!-- <div class="scroll scroll-left ">
+        <ion-icon name="arrow-dropleft"></ion-icon>
+    </div>
+    <div class="scroll scroll-right ">
+        <ion-icon name="arrow-dropright"></ion-icon>
+    </div> -->
+</ion-footer>

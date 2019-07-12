@@ -14,11 +14,14 @@ import { LoginModule } from './login/login.module';
 
 import { SQLite } from '@ionic-native/sqlite/ngx';
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
+import { HealthCareModule } from './health-care/health-care.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, HomePageModule, LoginModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
+     HomePageModule, LoginModule, HealthCareModule, FormsModule, ReactiveFormsModule],
 
   providers: [
     StatusBar,

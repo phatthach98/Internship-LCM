@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, NavigationExtras} from '@angular/router';
 import { IPatient } from 'src/app/IPatient';
 @Component({
   selector: 'app-patient-detail',
@@ -14,7 +14,17 @@ export class PatientDetailPage implements OnInit {
     }
   }
 
+  public goMaternitySummary(patient: IPatient) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        p: patient,
+      },
+    };
+    this.router.navigate(['maternity-summary'], navigationExtras);
+  }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log('Patient Detail Init');
+  }
 
 }

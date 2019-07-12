@@ -6,7 +6,8 @@ import { AuthhGuard } from './login/guards/authh.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule', canActivate: [AuthhGuard]},
-  { path: 'login', loadChildren: './login/login.module#LoginModule'}
+  { path: 'login', loadChildren: './login/login.module#LoginModule'},
+  { path: 'health-care', loadChildren: './health-care/health-care.module#HealthCareModule'}
 ];
 
 @NgModule({

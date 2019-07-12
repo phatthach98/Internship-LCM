@@ -1,0 +1,52 @@
+.scroll {
+    top: 0;
+    position: absolute;
+    height: 53px;
+    line-height: 50px;
+    background-color: rgba($color: coral, $alpha: 0.6);
+    color: white;
+    font-size: 30px;
+}
+
+.scroll-left {
+    left: 0px;
+}
+
+.scroll-right {
+    right: 0px;
+}
+
+// ion-segment-button {
+//     font-size: 16px;
+//     color: var(--ion-color-medium);
+//     border: 0px;
+//     border-radius: 0px;
+// }
+// .segment-button-checked {
+//     background: #FFF;
+//     color: var(--ion-color-primary);
+//     border-bottom: 3px solid var(--ion-color-primary);
+// }
+.hidden {
+    display: none
+}
+
+ion-segment-button {
+    background-color: black;
+    color: white;
+    border-top: 5px solid coral;
+    --color-checked: none;
+    --background-checked: none;
+    --indicator-color-checked: none;
+    --background-activated: none;
+    --color-activated: none;
+    --background: none;
+}
+
+// .segment-button-checked {
+//     background-color: red;
+//     // color: white;
+//     border-top: 5px solid coral;
+//     border-bottom: none;
+// }
+// .segment-button-checked {}

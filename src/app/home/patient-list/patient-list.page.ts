@@ -34,7 +34,7 @@ export class PatientListPage implements OnInit {
   }
 
   public getPatientList(): void {
-    const token = 'bcvajmxxstympxnyu3tiggz5#636982537451899972';
+    const token = 'nbzfmedhklwhggtflb3iflrm#636985095115378705';
     const CPOid = '600000273014';
     this.loader = true;
     this.apiPatient.getPatientList(CPOid, token).pipe(
@@ -52,7 +52,13 @@ export class PatientListPage implements OnInit {
           age: this.getAge(res.birthDate),
           gender: res.gender,
           nhsNumber: res.nhsNumber,
-        }
+          birthDate: res.birthDate,
+          address: {
+             use: res.address[0].use,
+            line: res.address[0].line[0],
+            country: res.address[0].country,
+          }
+        };
         this.patients.push(data);
       },
       (err) => {
