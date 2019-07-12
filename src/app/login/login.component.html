@@ -1,0 +1,38 @@
+<ion-app>
+    <div class="wrapper-title" color="dark">
+        <img src="../../assets/HealthcareLogo.jpg" alt="">
+        <span class="title">Community Maternity</span>
+    </div>
+    <ion-content text-center>
+        <form class="wrapper-login" (ngSubmit)="logIn()" #logInForm="ngForm">
+            <ion-list class="log-in">
+                <!-- Username -->
+                <ion-item>
+                    <ion-input placeholder="Username" name="userName" [(ngModel)]="userName" #user="ngModel" required></ion-input>
+                    <!-- Validate username by Template reference variable(user) -->
+                    <div *ngIf="user.invalid && (user.dirty || user.touched)" class="badge badge-danger">
+                        <div *ngIf="user?.errors.required">
+                            is required.
+                        </div>
+                    </div>
+                </ion-item>
+                <!-- Password -->
+                <ion-item>
+                    <ion-input placeholder="Password" type="password" name="pwd" [(ngModel)]="pwd" #pass="ngModel" required></ion-input>
+                    <!-- Validate password by Template reference variable(pwd) -->
+                    <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="badge badge-danger">
+                        <div *ngIf="pass?.errors.required">
+                            is required.
+                        </div>
+                    </div>
+                </ion-item>
+                <ion-button expand="full" type="submit" color="dark">Log In</ion-button>
+            </ion-list>
+            <div *ngIf="err" class="badge badge-danger">{{err}}</div>
+            <div><a href="">Forgot Password ?</a></div>
+        </form>
+    </ion-content>
+    <ion-footer>
+        <img src="../../assets/login-logo.png" alt="">
+    </ion-footer>
+</ion-app>

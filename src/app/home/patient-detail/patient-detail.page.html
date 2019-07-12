@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar style="--background: black">
+        <ion-buttons slot="start">
+            <ion-back-button color="light" defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title style="font-weight: 600; color: white">Patient Detail</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="patient">
+    <ion-item style="--background: #0096bb">
+        <ion-avatar slot="start">
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+        <ion-label style="color:white">
+            <h2 color=" primary ">{{patient.firstName | uppercase}}, {{patient.lastName}},</h2>
+            <div>
+                AGE: <span>{{patient.age}}</span> - PAS ID: <span>{{patient.pasID}}</span>
+            </div>
+            <div>
+                <span>{{patient.gender | titlecase }}</span>
+            </div>
+        </ion-label>
+    </ion-item>
+</ion-content>

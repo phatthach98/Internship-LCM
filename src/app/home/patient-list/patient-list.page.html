@@ -1,0 +1,47 @@
+<ion-app>
+    <ion-header>
+        <ion-toolbar style="--background: black">
+            <ion-title class="title"> <img src="../../../assets/HealthcareLogo.jpg" alt="Logo"> Patients List</ion-title>
+            <ion-buttons slot="primary">
+                <ion-button color="light" (click)="confirmSync()">
+                    <ion-icon md="md-download"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-buttons slot="end">
+                <ion-button color="light" (click)="confirmLogout()">
+                    <ion-icon name="log-out"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+        <ion-toolbar>
+            <div class="quantity-patient"> {{ patients.length}} of {{ PATIENTS.length}} Patient</div>
+            <ion-searchbar class="searchbar-wrapper" (ionInput)="searchPatient($event)" (ionFocus)="$event.target.style.backgroundColor = 'black'" (ionBlur)="$event.target.style.backgroundColor = '#999'"></ion-searchbar>
+        </ion-toolbar>
+        <ion-progress-bar color="dark" type="indeterminate" *ngIf="loader"></ion-progress-bar>
+    </ion-header>
+    <ion-content>
+        <ion-list class="patient-list">
+            <ion-item *ngIf="msg">
+                <ion-label color="danger">{{msg}}</ion-label>
+            </ion-item>
+            <ion-item *ngFor="let patient of patients" class="content">
+                <ion-label (click)="goDetail(patient)">
+                    <ion-text>
+                        <h2 color=" primary ">{{ patient.firstName | uppercase}}, {{ patient.lastName}}</h2>
+                    </ion-text>
+                    <ion-text>
+                        <div style="color:black ">
+                            NHS No.: <span>{{ patient.nhsNumber}}</span> - PAS ID: <span>{{ patient.pasID}}</span>
+                        </div>
+                    </ion-text>
+                    <ion-text>
+                        <div>
+                            <span>{{ patient.gender}}</span> -
+                            <span>{{ patient.age}}y</span>
+                        </div>
+                    </ion-text>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-app>

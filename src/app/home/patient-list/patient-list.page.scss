@@ -1,0 +1,29 @@
+ input[class="searchbar-input sc-ion-searchbar-ios"] {
+     background-color: #ffffff!important;
+     z-index: 0;
+     border-radius: 10px!important;
+ }
+ 
+ .searchbar-wrapper {
+     background-color: #999;
+     padding: 6px!important;
+     transition: 0.7s;
+ }
+ 
+ .title {
+     background-color: black;
+     padding: 20px;
+     color: white;
+     font-size: 20px;
+     font-weight: 600
+ }
+ 
+ .quantity-patient {
+     padding: 10px;
+     font-weight: 600
+ }
+ 
+ span[class="button-inner"] {
+     color: white;
+     font-size: 20px;
+ }
