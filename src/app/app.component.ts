@@ -28,13 +28,13 @@ export class AppComponent {
       this.splashScreen.hide();
     });
 
-    this.authenService.getAuthencationState.subscribe( state =>
-    { if (state) {
-        this.router.navigate(['home']);
-      } else {
-        this.router.navigate(['login']);
-      }
-    });
+    // this.authenService.getAuthencationState.subscribe( state =>
+    // { if (state) {
+    //     this.router.navigate(['home']);
+    //   } else {
+    //     this.router.navigate(['login']);
+    //   }
+    // });
   }
 
   detectRouting() {
